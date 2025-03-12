@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Flashcard Generator</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>AI-Powered Smart Flashcard Generator</h1>
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="pdf" accept=".pdf" required>
+            <button type="submit">Generate Flashcards</button>
+        </form>
+
+        {% if flashcards %}
+        <h2>Generated Flashcards:</h2>
+        <div class="flashcard-container">
+            {% for card in flashcards %}
+            <div class="flashcard">{{ card }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

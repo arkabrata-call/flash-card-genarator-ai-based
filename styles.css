@@ -1,57 +1,135 @@
+/* General Body Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
-    display: flex;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
+    background: linear-gradient(135deg, #A7B9DD, #723B6C);
+    color: #333;
     margin: 0;
+    padding: 0;
 }
 
+/* Container with Gradient Background Effect */
 .container {
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 600px;
-    padding: 20px;
+    width: 120%;
+    max-width: 800px;
+    margin: 40px auto;
     text-align: center;
+    background: linear-gradient(135deg, #A7B9DD, #723B6C);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: gradient-shift 4s infinite alternate;
 }
 
-h1 {
-    color: #4CAF50;
+@keyframes gradient-shift {
+    0% {
+        background: linear-gradient(135deg, #ffffff, #f1f1f1);
+    }
+    100% {
+        background: linear-gradient(135deg, #f1f1f1, #e8e8e8);
+    }
 }
 
-input[type="file"] {
-    margin: 10px 0;
+/* Form Styling */
+form {
+    margin-bottom: 20px;
 }
 
-button {
+/* File Upload Button */
+.custom-file-upload {
+    display: inline-block;
+    padding: 12px 24px;
     background-color: #4CAF50;
     color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
+.custom-file-upload:hover {
     background-color: #45a049;
 }
 
-.flashcard-container {
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+/* Display File Name */
+#file-name {
+    font-size: 16px;
+    color: #555;
+    margin-top: 8px;
 }
 
-.flashcard {
-    background-color: #e3f2fd;
-    border: 2px solid #4CAF50;
-    padding: 10px;
+/* Submit Button Styling */
+button {
+    padding: 12px 24px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
     border-radius: 8px;
-    width: 100%;
-    text-align: left;
+    cursor: pointer;
+    margin-top: 12px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0073a8;
+    transform: translateY(-2px);
+}
+
+/* Error Message */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Flashcard Container */
+.flashcard-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+}
+
+/* Flashcard Styling */
+.flashcard {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+    perspective: 1000px;
+}
+
+.flashcard:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Flashcard Flip Animation */
+.flashcard.flipped {
+    transform: rotateY(180deg);
+    background-color: #f1f1f1;
+}
+
+/* Active Flashcard */
+.flashcard.active {
+    border-color: #4CAF50;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Loading Message */
+.loading-message {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    z-index: 999;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
